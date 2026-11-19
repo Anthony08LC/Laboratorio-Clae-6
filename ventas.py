@@ -1,8 +1,8 @@
-def calcular_total(precio, cantidad):
-    if precio < 0:
-        raise ValueError("El precio no puede ser negativo")
+def calcular_total(subtotal_centavos: int, descuento: int) -> int:
+    if subtotal_centavos < 0:
+        raise ValueError("El subtotal debe ser no negativo")
 
-    if cantidad < 0:
-        raise ValueError("La cantidad no puede ser negativa")
+    if not 0 <= descuento <= 100:
+        raise ValueError("El descuento debe estar entre 0 y 100")
 
-    return precio * cantidad
+    return (subtotal_centavos * (100 - descuento) + 50) // 100
